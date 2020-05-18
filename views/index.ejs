@@ -23,20 +23,20 @@
 
       axios.get(Url)
       .then(x => {
-        const amnt=x.data.amount
-        const curr=x.data.currency
-        const idd=x.data.id
+        const amnt=x.data.amount //amount returned by backend
+        const curr=x.data.currency //currency returned by backend
+        const idd=x.data.id //order_id returned by order API
 
         var options = {
-        "key": "", // Enter the Key ID generated from the Dashboard
-        "amount":amnt, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "key": "", //add your razorpay account key
+        "amount":amnt, 
         "currency":curr,
-        "name": "Collage",
-        "description": "Test Transaction",
-        "order_id": idd, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "name": "",
+        "description": "",
+        "order_id": idd,
         "handler": function (response) {
-          alert(response.razorpay_payment_id);
-          alert(response.razorpay_order_id);
+          alert(response.razorpay_payment_id)
+          alert(response.razorpay_order_id)
           alert(response.razorpay_signature)
         },
         "prefill": {
@@ -51,6 +51,7 @@
 
       })
       .catch(err=>console.log(err))
+      
     }
 </script>
 

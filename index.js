@@ -6,19 +6,15 @@ const cors = require('cors')
 app.use(cors())
 
 const razorpay =  new Razorpay({
-    key_id: '',
+    key_id: '', //add your razorpay account details
     key_secret: ''
 })
 
-const ob={
-    message:"yash"
-
-}
 
 app.get('/razorpay',(req,res)=>{
 
     const payment_capture=1
-    const amount =1
+    const amount =1 //change this amount
 
     const options ={
         amount:(amount*100),
